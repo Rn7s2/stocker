@@ -51,7 +51,7 @@ namespace GUI
 
 		public:
 
-			MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Stocker - Sale System"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1000,600 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+			MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Stocker - Sales Management System"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1000,600 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 			~MainFrame();
 
