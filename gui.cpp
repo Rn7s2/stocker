@@ -17,39 +17,50 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	wxBoxSizer* bSizer1;
 	bSizer1 = new wxBoxSizer( wxVERTICAL );
 
-	m_notebook = new wxNotebook( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
-	m_panelStockIn = new wxPanel( m_notebook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
-	m_notebook->AddPage( m_panelStockIn, _("Stock In"), false );
-	m_panelStockOut = new wxPanel( m_notebook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
-	m_notebook->AddPage( m_panelStockOut, _("Stock Out"), false );
-	m_panelDetail = new wxPanel( m_notebook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
-	m_notebook->AddPage( m_panelDetail, _("Detail"), false );
-	m_panelModify = new wxPanel( m_notebook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
-	m_notebook->AddPage( m_panelModify, _("Modify"), false );
-	m_panelDelete = new wxPanel( m_notebook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
-	m_notebook->AddPage( m_panelDelete, _("Delete"), false );
-	m_panelOverview = new wxPanel( m_notebook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
-	m_notebook->AddPage( m_panelOverview, _("Overview"), false );
-	m_panelRecord = new wxPanel( m_notebook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
-	m_notebook->AddPage( m_panelRecord, _("Record"), false );
-	m_panelAbout = new wxPanel( m_notebook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
-	wxBoxSizer* bSizer2;
-	bSizer2 = new wxBoxSizer( wxVERTICAL );
+	m_ribbonBar1 = new wxRibbonBar( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxRIBBON_BAR_DEFAULT_STYLE );
+	m_ribbonBar1->SetArtProvider(new wxRibbonDefaultArtProvider);
+	m_ribbonPage1 = new wxRibbonPage( m_ribbonBar1, wxID_ANY, _("MyRibbonPage") , wxNullBitmap , 0 );
+	m_ribbonPanel1 = new wxRibbonPanel( m_ribbonPage1, wxID_ANY, _("Function") , wxNullBitmap , wxDefaultPosition, wxDefaultSize, wxRIBBON_PANEL_DEFAULT_STYLE );
+	m_ribbonButtonBar1 = new wxRibbonButtonBar( m_ribbonPanel1, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+	m_ribbonButtonBar1->AddButton( wxID_ANY, _("Stock In"), wxArtProvider::GetBitmap( wxART_ADD_BOOKMARK, wxART_BUTTON ), wxEmptyString);
+	m_ribbonButtonBar1->AddButton( wxID_ANY, _("Stock Out"), wxArtProvider::GetBitmap( wxART_DEL_BOOKMARK, wxART_BUTTON ), wxEmptyString);
+	m_ribbonButtonBar1->AddButton( wxID_ANY, _("Detail"), wxArtProvider::GetBitmap( wxART_FIND, wxART_MENU ), wxEmptyString);
+	m_ribbonButtonBar1->AddButton( wxID_ANY, _("Modify"), wxArtProvider::GetBitmap( wxART_FILE_SAVE_AS, wxART_BUTTON ), wxEmptyString);
+	m_ribbonButtonBar1->AddButton( wxID_ANY, _("Delete"), wxArtProvider::GetBitmap( wxART_DELETE, wxART_BUTTON ), wxEmptyString);
+	m_ribbonButtonBar1->AddButton( wxID_ANY, _("Record"), wxArtProvider::GetBitmap( wxART_REPORT_VIEW, wxART_BUTTON ), wxEmptyString);
+	m_ribbonPanel2 = new wxRibbonPanel( m_ribbonPage1, wxID_ANY, _("Help") , wxNullBitmap , wxDefaultPosition, wxDefaultSize, wxRIBBON_PANEL_DEFAULT_STYLE );
+	m_ribbonButtonBar2 = new wxRibbonButtonBar( m_ribbonPanel2, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+	m_ribbonButtonBar2->AddButton( wxID_ANY, _("About"), wxArtProvider::GetBitmap( wxART_HELP_PAGE, wxART_BUTTON ), wxEmptyString);
+	m_ribbonButtonBar2->AddButton( wxID_ANY, _("Help"), wxArtProvider::GetBitmap( wxART_HELP_BOOK, wxART_BUTTON ), wxEmptyString);
+	m_ribbonBar1->Realize();
 
-	m_staticText1 = new wxStaticText( m_panelAbout, wxID_ANY, _("Stocker (C) 2021 rn7s2\nWTFPL, do that the fuck you want to."), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText1->Wrap( -1 );
-	bSizer2->Add( m_staticText1, 0, wxALL, 5 );
+	bSizer1->Add( m_ribbonBar1, 0, wxEXPAND, 5 );
 
-	m_richText1 = new wxRichTextCtrl( m_panelAbout, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxVSCROLL|wxHSCROLL|wxNO_BORDER|wxWANTS_CHARS );
-	bSizer2->Add( m_richText1, 1, wxALL|wxEXPAND, 5 );
+	m_grid = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
+	// Grid
+	m_grid->CreateGrid( 5, 5 );
+	m_grid->EnableEditing( true );
+	m_grid->EnableGridLines( true );
+	m_grid->EnableDragGridSize( false );
+	m_grid->SetMargins( 0, 0 );
 
-	m_panelAbout->SetSizer( bSizer2 );
-	m_panelAbout->Layout();
-	bSizer2->Fit( m_panelAbout );
-	m_notebook->AddPage( m_panelAbout, _("About"), false );
+	// Columns
+	m_grid->EnableDragColMove( false );
+	m_grid->EnableDragColSize( true );
+	m_grid->SetColLabelSize( 30 );
+	m_grid->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
-	bSizer1->Add( m_notebook, 1, wxEXPAND | wxALL, 5 );
+	// Rows
+	m_grid->EnableDragRowSize( true );
+	m_grid->SetRowLabelSize( 80 );
+	m_grid->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+
+	// Label Appearance
+
+	// Cell Defaults
+	m_grid->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
+	bSizer1->Add( m_grid, 1, wxEXPAND, 5 );
 
 
 	this->SetSizer( bSizer1 );

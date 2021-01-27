@@ -10,19 +10,22 @@
 #include <wx/artprov.h>
 #include <wx/xrc/xmlres.h>
 #include <wx/intl.h>
-#include <wx/panel.h>
-#include <wx/gdicmn.h>
-#include <wx/font.h>
-#include <wx/colour.h>
-#include <wx/settings.h>
 #include <wx/string.h>
 #include <wx/bitmap.h>
 #include <wx/image.h>
 #include <wx/icon.h>
-#include <wx/stattext.h>
-#include <wx/richtext/richtextctrl.h>
+#include <wx/gdicmn.h>
+#include <wx/font.h>
+#include <wx/colour.h>
+#include <wx/settings.h>
+#include <wx/ribbon/buttonbar.h>
+#include <wx/ribbon/panel.h>
+#include <wx/ribbon/page.h>
+#include <wx/ribbon/control.h>
+#include <wx/ribbon/art.h>
+#include <wx/ribbon/bar.h>
+#include <wx/grid.h>
 #include <wx/sizer.h>
-#include <wx/notebook.h>
 #include <wx/frame.h>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -37,17 +40,13 @@ namespace GUI
 		private:
 
 		protected:
-			wxNotebook* m_notebook;
-			wxPanel* m_panelStockIn;
-			wxPanel* m_panelStockOut;
-			wxPanel* m_panelDetail;
-			wxPanel* m_panelModify;
-			wxPanel* m_panelDelete;
-			wxPanel* m_panelOverview;
-			wxPanel* m_panelRecord;
-			wxPanel* m_panelAbout;
-			wxStaticText* m_staticText1;
-			wxRichTextCtrl* m_richText1;
+			wxRibbonBar* m_ribbonBar1;
+			wxRibbonPage* m_ribbonPage1;
+			wxRibbonPanel* m_ribbonPanel1;
+			wxRibbonButtonBar* m_ribbonButtonBar1;
+			wxRibbonPanel* m_ribbonPanel2;
+			wxRibbonButtonBar* m_ribbonButtonBar2;
+			wxGrid* m_grid;
 
 		public:
 

@@ -5,8 +5,9 @@ project(stocker LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(wxWidgets COMPONENTS core base richtext)
+find_package(wxWidgets COMPONENTS core base richtext ribbon adv)
 include("${wxWidgets_USE_FILE}")
 
-add_executable(stocker mainapp.cpp mainframe.cpp gui.cpp mainapp.h mainframe.h gui.h)
+add_executable(stocker mainapp.cpp mainframe.cpp gui.cpp database.cpp
+               mainapp.h mainframe.h gui.h database.h)
 target_link_libraries(stocker ${wxWidgets_LIBRARIES})
