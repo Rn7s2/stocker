@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2021-01-31 20:20+0800\n"
+"PO-Revision-Date: 2021-01-31 20:20+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-KeywordsList: _\n"
+"X-Poedit-SearchPath-0: gui.cpp\n"
+"X-Poedit-SearchPath-1: gui.h\n"
+"X-Poedit-SearchPath-2: mainapp.cpp\n"
+"X-Poedit-SearchPath-3: mainapp.h\n"
+"X-Poedit-SearchPath-4: mainframe.cpp\n"
+"X-Poedit-SearchPath-5: mainframe.h\n"
+
+#: gui.cpp:22
+msgid "MyRibbonPage"
+msgstr "我的Ribbon页"
+
+#: gui.cpp:23
+msgid "Function"
+msgstr "功能"
+
+#: gui.cpp:25
+msgid "Stock In"
+msgstr "入库"
+
+#: gui.cpp:26
+msgid "Stock Out"
+msgstr "出库"
+
+#: gui.cpp:27
+msgid "Detail"
+msgstr "详情"
+
+#: gui.cpp:28
+msgid "Modify"
+msgstr "修改"
+
+#: gui.cpp:29
+msgid "Delete"
+msgstr "删除"
+
+#: gui.cpp:30
+msgid "Record"
+msgstr "记录"
+
+#: gui.cpp:31 gui.cpp:34
+msgid "Help"
+msgstr "帮助"
+
+#: gui.cpp:33
+msgid "About"
+msgstr "关于"
+
+#: gui.h:53
+msgid "Stocker - Sales Management System"
+msgstr "Stocker - 销售管理系统"

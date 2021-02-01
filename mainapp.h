@@ -7,6 +7,9 @@ class MainApp : public wxApp
 {
 public:
     virtual bool OnInit();
+
+private:
+    wxLocale m_locale;
 };
 
 #endif // MAINAPP_H

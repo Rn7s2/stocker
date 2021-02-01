@@ -75,6 +75,7 @@ Database::Database()
     file.Close();
 }
 
+
 // TODO: 参照数据格式，实现写入函数。
 void Database::Write()
 {
