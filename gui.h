@@ -27,6 +27,17 @@
 #include <wx/grid.h>
 #include <wx/sizer.h>
 #include <wx/frame.h>
+#include <wx/stattext.h>
+#include <wx/textctrl.h>
+#include <wx/listctrl.h>
+#include <wx/button.h>
+#include <wx/dialog.h>
+#include <wx/spinctrl.h>
+#include <wx/datectrl.h>
+#include <wx/dateevt.h>
+#include <wx/statbox.h>
+#include <wx/statbmp.h>
+#include <wx/richtext/richtextctrl.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -40,19 +51,261 @@ namespace GUI
 		private:
 
 		protected:
-			wxRibbonBar* m_ribbonBar1;
-			wxRibbonPage* m_ribbonPage1;
+			enum
+			{
+				ID_RIBBON1 = 1000,
+				ID_RIBBON2,
+				ID_RIBBON3,
+				ID_RIBBON4,
+				ID_RIBBON5,
+				ID_RIBBON6,
+				ID_RIBBON7,
+				ID_RIBBON8
+			};
+
+			wxRibbonBar* m_ribbonBar;
+			wxRibbonPage* m_ribbonPage;
 			wxRibbonPanel* m_ribbonPanel1;
 			wxRibbonButtonBar* m_ribbonButtonBar1;
 			wxRibbonPanel* m_ribbonPanel2;
 			wxRibbonButtonBar* m_ribbonButtonBar2;
 			wxGrid* m_grid;
 
+			// Virtual event handlers, overide them in your derived class
+			virtual void m_ribbonButton1OnRibbonButtonClicked( wxRibbonButtonBarEvent& event ) { event.Skip(); }
+			virtual void m_ribbonButton2OnRibbonButtonClicked( wxRibbonButtonBarEvent& event ) { event.Skip(); }
+			virtual void m_ribbonButton3OnRibbonButtonClicked( wxRibbonButtonBarEvent& event ) { event.Skip(); }
+			virtual void m_ribbonButton4OnRibbonButtonClicked( wxRibbonButtonBarEvent& event ) { event.Skip(); }
+			virtual void m_ribbonButton5OnRibbonButtonClicked( wxRibbonButtonBarEvent& event ) { event.Skip(); }
+			virtual void m_ribbonButton6OnRibbonButtonClicked( wxRibbonButtonBarEvent& event ) { event.Skip(); }
+			virtual void m_ribbonButton7OnRibbonButtonClicked( wxRibbonButtonBarEvent& event ) { event.Skip(); }
+			virtual void m_ribbonButton8OnRibbonButtonClicked( wxRibbonButtonBarEvent& event ) { event.Skip(); }
+
+
 		public:
 
-			MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Stocker - Sales Management System"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1000,600 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+			MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Stocker - Sales Management System"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 			~MainFrame();
+
+	};
+
+	///////////////////////////////////////////////////////////////////////////////
+	/// Class SearchDialog
+	///////////////////////////////////////////////////////////////////////////////
+	class SearchDialog : public wxDialog
+	{
+		private:
+
+		protected:
+			wxStaticText* m_staticText;
+			wxTextCtrl* m_textCtrl;
+			wxListCtrl* m_listCtrl;
+			wxButton* m_button1;
+			wxButton* m_button2;
+
+		public:
+
+			SearchDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Search"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
+			~SearchDialog();
+
+	};
+
+	///////////////////////////////////////////////////////////////////////////////
+	/// Class AddExistedDialog
+	///////////////////////////////////////////////////////////////////////////////
+	class AddExistedDialog : public wxDialog
+	{
+		private:
+
+		protected:
+			wxStaticText* m_staticText;
+			wxSpinCtrl* m_spinCtrl;
+			wxButton* m_button;
+
+		public:
+
+			AddExistedDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Stock in"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
+			~AddExistedDialog();
+
+	};
+
+	///////////////////////////////////////////////////////////////////////////////
+	/// Class AddNewDialog
+	///////////////////////////////////////////////////////////////////////////////
+	class AddNewDialog : public wxDialog
+	{
+		private:
+
+		protected:
+			wxStaticText* m_staticText1;
+			wxTextCtrl* m_textCtrl1;
+			wxStaticText* m_staticText2;
+			wxTextCtrl* m_textCtrl2;
+			wxStaticText* m_staticText3;
+			wxDatePickerCtrl* m_datePicker;
+			wxStaticText* m_staticText4;
+			wxSpinCtrlDouble* m_spinCtrlDouble;
+			wxStaticText* m_staticText5;
+			wxSpinCtrl* m_spinCtrl;
+			wxButton* m_button;
+
+		public:
+
+			AddNewDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Stock in"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+			~AddNewDialog();
+
+	};
+
+	///////////////////////////////////////////////////////////////////////////////
+	/// Class StockOutDialog
+	///////////////////////////////////////////////////////////////////////////////
+	class StockOutDialog : public wxDialog
+	{
+		private:
+
+		protected:
+			wxStaticText* m_staticText;
+			wxSpinCtrl* m_spinCtrl;
+			wxButton* m_button;
+
+		public:
+
+			StockOutDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Stock out"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+			~StockOutDialog();
+
+	};
+
+	///////////////////////////////////////////////////////////////////////////////
+	/// Class DetailDialog
+	///////////////////////////////////////////////////////////////////////////////
+	class DetailDialog : public wxDialog
+	{
+		private:
+
+		protected:
+			wxStaticText* m_staticText1;
+			wxTextCtrl* m_textCtrl1;
+			wxStaticText* m_staticText2;
+			wxTextCtrl* m_textCtrl2;
+			wxStaticText* m_staticText3;
+			wxDatePickerCtrl* m_datePicker;
+			wxStaticText* m_staticText4;
+			wxSpinCtrlDouble* m_spinCtrlDouble;
+			wxStaticText* m_staticText5;
+			wxSpinCtrl* m_spinCtrl;
+			wxStaticText* m_staticText6;
+			wxDatePickerCtrl* m_datePicker6;
+			wxStaticText* m_staticText7;
+			wxDatePickerCtrl* m_datePicker7;
+			wxStaticText* m_staticText8;
+			wxTextCtrl* m_textCtrl3;
+			wxStaticText* m_staticText9;
+			wxTextCtrl* m_textCtrl4;
+			wxButton* m_button;
+
+		public:
+
+			DetailDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Detail"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+			~DetailDialog();
+
+	};
+
+	///////////////////////////////////////////////////////////////////////////////
+	/// Class ModifyDialog
+	///////////////////////////////////////////////////////////////////////////////
+	class ModifyDialog : public wxDialog
+	{
+		private:
+
+		protected:
+			wxStaticText* m_staticText1;
+			wxTextCtrl* m_textCtrl1;
+			wxStaticText* m_staticText2;
+			wxTextCtrl* m_textCtrl2;
+			wxStaticText* m_staticText3;
+			wxDatePickerCtrl* m_datePicker;
+			wxStaticText* m_staticText4;
+			wxSpinCtrlDouble* m_spinCtrlDouble;
+			wxButton* m_button;
+
+		public:
+
+			ModifyDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Modify"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+			~ModifyDialog();
+
+	};
+
+	///////////////////////////////////////////////////////////////////////////////
+	/// Class DeleteDialog
+	///////////////////////////////////////////////////////////////////////////////
+	class DeleteDialog : public wxDialog
+	{
+		private:
+
+		protected:
+			wxStaticBitmap* m_bitmap;
+			wxStaticText* m_staticText;
+			wxButton* m_button1;
+			wxButton* m_button2;
+
+		public:
+
+			DeleteDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Delete"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
+			~DeleteDialog();
+
+	};
+
+	///////////////////////////////////////////////////////////////////////////////
+	/// Class StatisticDialog
+	///////////////////////////////////////////////////////////////////////////////
+	class StatisticDialog : public wxDialog
+	{
+		private:
+
+		protected:
+			wxStaticText* m_staticText;
+
+		public:
+
+			StatisticDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Statistic"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+			~StatisticDialog();
+
+	};
+
+	///////////////////////////////////////////////////////////////////////////////
+	/// Class AboutDialog
+	///////////////////////////////////////////////////////////////////////////////
+	class AboutDialog : public wxDialog
+	{
+		private:
+
+		protected:
+			wxStaticText* m_staticText1;
+			wxStaticText* m_staticText2;
+			wxButton* m_button;
+
+		public:
+
+			AboutDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("About"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+			~AboutDialog();
+
+	};
+
+	///////////////////////////////////////////////////////////////////////////////
+	/// Class HelpDialog
+	///////////////////////////////////////////////////////////////////////////////
+	class HelpDialog : public wxDialog
+	{
+		private:
+
+		protected:
+
+		public:
+			wxRichTextCtrl* m_richText;
+
+			HelpDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Help"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
+			~HelpDialog();
 
 	};
 
