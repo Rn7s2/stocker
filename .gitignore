@@ -1,4 +1,1 @@
-/build/
-.project
-.cproject
-.gitignore
+CMakeLists.txt.user

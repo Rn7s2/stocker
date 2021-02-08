@@ -41,12 +41,13 @@ struct Item {
 class Database {
 public:
 	Database();
-	void Write();
+	void ModifyItem(const Item &o, const Item &t);
 	void InsertItem(const Item &t);
 	void DeleteItem(const Item &t);
 	std::list<Item> SearchItem(const wxString &str);
 
 private:
+	void Write();
 	std::list<Item> item;
 };
 

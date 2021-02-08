@@ -9,5 +9,5 @@ find_package(wxWidgets COMPONENTS core base richtext ribbon adv)
 include("${wxWidgets_USE_FILE}")
 
 add_executable(Stocker mainapp.cpp mainframe.cpp gui.cpp database.cpp
-					   mainapp.h mainframe.h gui.h database.h)
+mainapp.h mainframe.h gui.h database.h)
 target_link_libraries(Stocker ${wxWidgets_LIBRARIES})

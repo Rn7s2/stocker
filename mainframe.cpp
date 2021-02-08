@@ -1,5 +1,5 @@
-#include "mainframe.h"
 #include "gui.h"
+#include "mainframe.h"
 
 MainFrame::MainFrame() :
 		GUI::MainFrame(nullptr, wxID_ANY)
@@ -15,6 +15,15 @@ MainFrame::MainFrame() :
 	m_grid->SetColumnWidth(2, 75);
 	m_grid->SetColumnWidth(3, 75);
 	m_grid->SetColumnWidth(4, 150);
+
+	// test code
+	Item item;
+	item.name = wxT("Fuck");
+	item.price = 1.0;
+	item.id = wxT("fuck");
+	item.expiration.ParseISODate(wxT("2020-01-01"));
+	item.num = 19999;
+	db.InsertItem(item);
 }
 
 void MainFrame::m_ribbonButton1OnRibbonButtonClicked(
