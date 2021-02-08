@@ -1,4 +1,5 @@
 # This file is used to ignore files which are generated
+
 # ----------------------------------------------------------------------------
 
 *~
@@ -72,4 +73,4 @@ CMakeLists.txt.user
 *.dll
 *.exe
 
-build
+/build/
