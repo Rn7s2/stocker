@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/rn7s2/Project/Stocker/build/default",
+  "command": "/usr/bin/c++ -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib64/wx/include/gtk3-unicode-3.0 -isystem /usr/include/wx-3.0  -pthread -std=gnu++11 -o CMakeFiles/stocker.dir/mainapp.cpp.o -c /home/rn7s2/Project/Stocker/mainapp.cpp",
+  "file": "/home/rn7s2/Project/Stocker/mainapp.cpp"
+},
+{
+  "directory": "/home/rn7s2/Project/Stocker/build/default",
+  "command": "/usr/bin/c++ -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib64/wx/include/gtk3-unicode-3.0 -isystem /usr/include/wx-3.0  -pthread -std=gnu++11 -o CMakeFiles/stocker.dir/mainframe.cpp.o -c /home/rn7s2/Project/Stocker/mainframe.cpp",
+  "file": "/home/rn7s2/Project/Stocker/mainframe.cpp"
+},
+{
+  "directory": "/home/rn7s2/Project/Stocker/build/default",
+  "command": "/usr/bin/c++ -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib64/wx/include/gtk3-unicode-3.0 -isystem /usr/include/wx-3.0  -pthread -std=gnu++11 -o CMakeFiles/stocker.dir/gui.cpp.o -c /home/rn7s2/Project/Stocker/gui.cpp",
+  "file": "/home/rn7s2/Project/Stocker/gui.cpp"
+},
+{
+  "directory": "/home/rn7s2/Project/Stocker/build/default",
+  "command": "/usr/bin/c++ -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib64/wx/include/gtk3-unicode-3.0 -isystem /usr/include/wx-3.0  -pthread -std=gnu++11 -o CMakeFiles/stocker.dir/database.cpp.o -c /home/rn7s2/Project/Stocker/database.cpp",
+  "file": "/home/rn7s2/Project/Stocker/database.cpp"
+}
+]

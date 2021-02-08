@@ -3,13 +3,12 @@
 
 #include <wx/wx.h>
 
-class MainApp : public wxApp
-{
+class MainApp: public wxApp {
 public:
-    virtual bool OnInit();
+	virtual bool OnInit();
 
 private:
-    wxLocale m_locale;
+	wxLocale m_locale;
 };
 
 #endif // MAINAPP_H
