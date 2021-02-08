@@ -1,1 +1,0 @@
-/usr/bin/c++  -pthread CMakeFiles/stocker.dir/mainapp.cpp.o CMakeFiles/stocker.dir/mainframe.cpp.o CMakeFiles/stocker.dir/gui.cpp.o CMakeFiles/stocker.dir/database.cpp.o -o stocker  -pthread -lwx_gtk3u_core-3.0 -lwx_baseu-3.0 -lwx_gtk3u_richtext-3.0 -lwx_gtk3u_ribbon-3.0 -lwx_gtk3u_adv-3.0 

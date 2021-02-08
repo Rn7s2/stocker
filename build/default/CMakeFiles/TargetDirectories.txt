@@ -1,3 +1,0 @@
-/home/rn7s2/Project/Stocker/build/default/CMakeFiles/rebuild_cache.dir
-/home/rn7s2/Project/Stocker/build/default/CMakeFiles/edit_cache.dir
-/home/rn7s2/Project/Stocker/build/default/CMakeFiles/stocker.dir
