@@ -104,6 +104,10 @@ namespace GUI
 			wxButton* m_button1;
 			wxButton* m_button2;
 
+			// Virtual event handlers, overide them in your derived class
+			virtual void m_listCtrlOnListItemSelected( wxListEvent& event ) { event.Skip(); }
+
+
 		public:
 
 			SearchDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Search"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE );

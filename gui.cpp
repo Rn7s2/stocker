@@ -135,10 +135,16 @@ SearchDialog::SearchDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	bSizer1->Fit( this );
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_listCtrl->Connect( wxEVT_COMMAND_LIST_ITEM_SELECTED, wxListEventHandler( SearchDialog::m_listCtrlOnListItemSelected ), NULL, this );
 }
 
 SearchDialog::~SearchDialog()
 {
+	// Disconnect Events
+	m_listCtrl->Disconnect( wxEVT_COMMAND_LIST_ITEM_SELECTED, wxListEventHandler( SearchDialog::m_listCtrlOnListItemSelected ), NULL, this );
+
 }
 
 AddExistedDialog::AddExistedDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )

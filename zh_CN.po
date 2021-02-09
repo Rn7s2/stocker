@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2021-02-08 10:38+0800\n"
-"PO-Revision-Date: 2021-02-08 10:38+0800\n"
+"POT-Creation-Date: 2021-02-08 22:20+0800\n"
+"PO-Revision-Date: 2021-02-08 22:22+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -36,150 +36,150 @@ msgstr "入库"
 msgid "Stock Out"
 msgstr "出库"
 
-#: gui.cpp:27 gui.h:209
+#: gui.cpp:27 gui.h:213
 msgid "Detail"
 msgstr "详情"
 
-#: gui.cpp:28 gui.h:234
+#: gui.cpp:28 gui.h:238
 msgid "Modify"
 msgstr "修改"
 
-#: gui.cpp:29 gui.h:254
+#: gui.cpp:29 gui.h:258
 msgid "Delete"
 msgstr "删除"
 
-#: gui.cpp:30 gui.h:271
+#: gui.cpp:30 gui.h:275
 msgid "Statistic"
-msgstr ""
+msgstr "统计"
 
-#: gui.cpp:31 gui.cpp:34 gui.h:307
+#: gui.cpp:31 gui.cpp:34 gui.h:311
 msgid "Help"
 msgstr "帮助"
 
-#: gui.cpp:33 gui.h:290
+#: gui.cpp:33 gui.h:294
 msgid "About"
 msgstr "关于"
 
 #: gui.cpp:107
 msgid "Input name/code: "
-msgstr ""
+msgstr "输入名称/条码："
 
-#: gui.cpp:123 gui.cpp:167 gui.cpp:255 gui.cpp:293 gui.cpp:451 gui.cpp:529
-#: gui.cpp:626
+#: gui.cpp:123 gui.cpp:173 gui.cpp:261 gui.cpp:299 gui.cpp:457 gui.cpp:535
+#: gui.cpp:632
 msgid "OK"
-msgstr ""
+msgstr "确定"
 
 #: gui.cpp:126
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
-#: gui.cpp:154
+#: gui.cpp:160
 msgid "Adding number: "
-msgstr ""
+msgstr "添加数量："
 
-#: gui.cpp:192 gui.cpp:324 gui.cpp:476
+#: gui.cpp:198 gui.cpp:330 gui.cpp:482
 msgid "Name: "
-msgstr ""
+msgstr "名称："
 
-#: gui.cpp:205 gui.cpp:337 gui.cpp:489
+#: gui.cpp:211 gui.cpp:343 gui.cpp:495
 msgid "Code: "
-msgstr ""
+msgstr "条码："
 
-#: gui.cpp:218 gui.cpp:350 gui.cpp:502
+#: gui.cpp:224 gui.cpp:356 gui.cpp:508
 msgid "Expiration: "
-msgstr ""
+msgstr "有效期："
 
-#: gui.cpp:231 gui.cpp:363 gui.cpp:515
+#: gui.cpp:237 gui.cpp:369 gui.cpp:521
 msgid "Price: "
-msgstr ""
+msgstr "价格："
 
-#: gui.cpp:245 gui.cpp:377
+#: gui.cpp:251 gui.cpp:383
 msgid "Number: "
-msgstr ""
+msgstr "数量："
 
-#: gui.cpp:280
+#: gui.cpp:286
 msgid "Stock out number: "
-msgstr ""
+msgstr "出库数量："
 
-#: gui.cpp:316
+#: gui.cpp:322
 msgid "Basic information"
-msgstr ""
+msgstr "基本信息"
 
-#: gui.cpp:394
+#: gui.cpp:400
 msgid "Stock in/out record"
-msgstr ""
+msgstr "出入库记录"
 
-#: gui.cpp:402
+#: gui.cpp:408
 msgid "From"
-msgstr ""
+msgstr "从"
 
-#: gui.cpp:409
+#: gui.cpp:415
 msgid "to"
-msgstr ""
+msgstr "至"
 
-#: gui.cpp:422
+#: gui.cpp:428
 msgid "Total stock in: "
-msgstr ""
+msgstr "总共入库："
 
-#: gui.cpp:435
+#: gui.cpp:441
 msgid "Total stock out: "
-msgstr ""
+msgstr "总共出库："
 
-#: gui.cpp:557
+#: gui.cpp:563
 msgid "Are you sure?"
-msgstr ""
+msgstr "你确定吗？"
 
-#: gui.cpp:567
+#: gui.cpp:573
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
-#: gui.cpp:570
+#: gui.cpp:576
 msgid "No"
-msgstr ""
+msgstr "否"
 
-#: gui.cpp:595
+#: gui.cpp:601
 msgid ""
 "I dont't know what function you want, or what statistic you need.\n"
 "So it is not implemented."
 msgstr "我不知道你想要什么功能、需要什么统计信息，所以它没有被实现。"
 
-#: gui.cpp:618 gui.h:87
+#: gui.cpp:624 gui.h:87
 msgid "Stocker - Sales Management System"
 msgstr "Stocker - 销售管理系统"
 
-#: gui.cpp:622
+#: gui.cpp:628
 msgid "Copyright (C) 2020 rn7s2"
 msgstr "版权所有 (C) 2020 rn7s2"
 
-#: gui.h:109
+#: gui.h:113
 msgid "Search"
 msgstr "搜索"
 
-#: gui.h:128 gui.h:155
+#: gui.h:132 gui.h:159
 msgid "Stock in"
 msgstr "入库"
 
-#: gui.h:174
+#: gui.h:178
 msgid "Stock out"
 msgstr "出库"
 
-#: mainframe.cpp:7
+#: mainframe.cpp:6
 msgid "Name"
 msgstr "名称"
 
-#: mainframe.cpp:8
+#: mainframe.cpp:7
 msgid "Code"
 msgstr "条码"
 
-#: mainframe.cpp:9
+#: mainframe.cpp:8
 msgid "Number"
 msgstr "数量"
 
-#: mainframe.cpp:10
+#: mainframe.cpp:9
 msgid "Price"
 msgstr "价格"
 
-#: mainframe.cpp:11
+#: mainframe.cpp:10
 msgid "Expiration"
 msgstr "有效期"
 
