@@ -4,9 +4,9 @@
 #include <wx/textfile.h>
 #include <wx/tokenzr.h>
 
-Record::Record(const unsigned long &isIn, const wxDateTime &time)
+Record::Record(const long &cnt, const wxDateTime &time)
 {
-    this->isIn = isIn;
+    this->cnt = cnt;
     this->time = time;
 }
 
@@ -55,18 +55,15 @@ Database::Database()
 
         while (tkz.HasMoreTokens()) {
             wxDateTime date;
-            unsigned long isIn;
+            long cnt;
 
             str = tkz.GetNextToken();
-            str.ToULong(&isIn);
+            str.ToLong(&cnt);
 
             str = tkz.GetNextToken();
             date.ParseISODate(str);
 
-            if (isIn)
-                tmp.record.emplace_back(1, date);
-            else
-                tmp.record.emplace_back(0, date);
+            tmp.record.emplace_back(cnt, date);
         }
 
         item.push_back(tmp);
@@ -92,7 +89,7 @@ void Database::Write()
         str << it->expiration.FormatISODate() << '|';
 
         for (auto v : it->record) {
-            str << v.isIn << '|';
+            str << v.cnt << '|';
             str << v.time.FormatISODate() << '|';
         }
         file.AddLine(str);
@@ -104,13 +101,13 @@ void Database::Write()
 void Database::ModifyItem(const Item &o, const Item &t)
 {
     item.remove(o);
-    item.push_back(t);
+    item.push_front(t);
     Write();
 }
 
 void Database::InsertItem(const Item &t)
 {
-    item.push_back(t);
+    item.push_front(t);
 
     wxTextFile file;
     if (!file.Open(wxT("database.db"))) {
@@ -125,10 +122,11 @@ void Database::InsertItem(const Item &t)
     str << t.expiration.FormatISODate() << '|';
 
     for (auto v : t.record) {
-        str << v.isIn << '|';
+        str << v.cnt << '|';
         str << v.time.FormatISODate() << '|';
     }
-    file.AddLine(str);
+
+    file.InsertLine(str, 0);
     file.Write();
     file.Close();
 }
@@ -143,9 +141,26 @@ void Database::DeleteItem(const Item &t)
 std::list<Item> Database::SearchItem(const wxString &str)
 {
     std::list<Item> ret;
+
+    if (str.empty())
+        return ret;
+
     for (auto it = item.begin(); it != item.end(); it++) {
         if (it->name.Contains(str) || it->id.Contains(str))
             ret.push_back(*it);
     }
     return ret;
+}
+
+Item Database::SearchItemByCode(const wxString &str)
+{
+    if (str.empty())
+        return Item();
+
+    for (auto it = item.begin(); it != item.end(); it++) {
+        if (it->id == str)
+            return *it;
+    }
+
+    return Item();
 }

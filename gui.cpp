@@ -22,7 +22,8 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	m_ribbonPage = new wxRibbonPage( m_ribbonBar, wxID_ANY, _("MyRibbonPage") , wxNullBitmap , 0 );
 	m_ribbonPanel1 = new wxRibbonPanel( m_ribbonPage, wxID_ANY, _("Function") , wxNullBitmap , wxDefaultPosition, wxDefaultSize, wxRIBBON_PANEL_DEFAULT_STYLE );
 	m_ribbonButtonBar1 = new wxRibbonButtonBar( m_ribbonPanel1, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
-	m_ribbonButtonBar1->AddButton( ID_RIBBON1, _("Stock In"), wxArtProvider::GetBitmap( wxART_ADD_BOOKMARK, wxART_BUTTON ), wxEmptyString);
+	m_ribbonButtonBar1->AddButton( ID_RIBBON1, _("Stock In Existed"), wxArtProvider::GetBitmap( wxART_ADD_BOOKMARK, wxART_BUTTON ), wxEmptyString);
+	m_ribbonButtonBar1->AddButton( ID_RIBBON9, _("Stock In New"), wxArtProvider::GetBitmap( wxART_NEW_DIR, wxART_BUTTON ), wxEmptyString);
 	m_ribbonButtonBar1->AddButton( ID_RIBBON2, _("Stock Out"), wxArtProvider::GetBitmap( wxART_DEL_BOOKMARK, wxART_BUTTON ), wxEmptyString);
 	m_ribbonButtonBar1->AddButton( ID_RIBBON3, _("Detail"), wxArtProvider::GetBitmap( wxART_FIND, wxART_MENU ), wxEmptyString);
 	m_ribbonButtonBar1->AddButton( ID_RIBBON4, _("Modify"), wxArtProvider::GetBitmap( wxART_FILE_SAVE_AS, wxART_BUTTON ), wxEmptyString);
@@ -31,7 +32,6 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	m_ribbonPanel2 = new wxRibbonPanel( m_ribbonPage, wxID_ANY, _("Help") , wxNullBitmap , wxDefaultPosition, wxDefaultSize, wxRIBBON_PANEL_DEFAULT_STYLE );
 	m_ribbonButtonBar2 = new wxRibbonButtonBar( m_ribbonPanel2, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	m_ribbonButtonBar2->AddButton( ID_RIBBON7, _("About"), wxArtProvider::GetBitmap( wxART_HELP_PAGE, wxART_BUTTON ), wxEmptyString);
-	m_ribbonButtonBar2->AddButton( ID_RIBBON8, _("Help"), wxArtProvider::GetBitmap( wxART_HELP_BOOK, wxART_BUTTON ), wxEmptyString);
 	m_ribbonBar->Realize();
 
 	bSizer->Add( m_ribbonBar, 0, wxEXPAND, 5 );
@@ -71,26 +71,26 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 
 	// Connect Events
 	this->Connect( ID_RIBBON1, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton1OnRibbonButtonClicked ) );
-	this->Connect( ID_RIBBON2, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton2OnRibbonButtonClicked ) );
-	this->Connect( ID_RIBBON3, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton3OnRibbonButtonClicked ) );
-	this->Connect( ID_RIBBON4, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton4OnRibbonButtonClicked ) );
-	this->Connect( ID_RIBBON5, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton5OnRibbonButtonClicked ) );
-	this->Connect( ID_RIBBON6, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton6OnRibbonButtonClicked ) );
-	this->Connect( ID_RIBBON7, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton7OnRibbonButtonClicked ) );
-	this->Connect( ID_RIBBON8, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton8OnRibbonButtonClicked ) );
+	this->Connect( ID_RIBBON9, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton2OnRibbonButtonClicked ) );
+	this->Connect( ID_RIBBON2, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton3OnRibbonButtonClicked ) );
+	this->Connect( ID_RIBBON3, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton4OnRibbonButtonClicked ) );
+	this->Connect( ID_RIBBON4, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton5OnRibbonButtonClicked ) );
+	this->Connect( ID_RIBBON5, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton6OnRibbonButtonClicked ) );
+	this->Connect( ID_RIBBON6, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton7OnRibbonButtonClicked ) );
+	this->Connect( ID_RIBBON7, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton8OnRibbonButtonClicked ) );
 }
 
 MainFrame::~MainFrame()
 {
 	// Disconnect Events
 	this->Disconnect( ID_RIBBON1, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton1OnRibbonButtonClicked ) );
-	this->Disconnect( ID_RIBBON2, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton2OnRibbonButtonClicked ) );
-	this->Disconnect( ID_RIBBON3, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton3OnRibbonButtonClicked ) );
-	this->Disconnect( ID_RIBBON4, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton4OnRibbonButtonClicked ) );
-	this->Disconnect( ID_RIBBON5, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton5OnRibbonButtonClicked ) );
-	this->Disconnect( ID_RIBBON6, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton6OnRibbonButtonClicked ) );
-	this->Disconnect( ID_RIBBON7, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton7OnRibbonButtonClicked ) );
-	this->Disconnect( ID_RIBBON8, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton8OnRibbonButtonClicked ) );
+	this->Disconnect( ID_RIBBON9, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton2OnRibbonButtonClicked ) );
+	this->Disconnect( ID_RIBBON2, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton3OnRibbonButtonClicked ) );
+	this->Disconnect( ID_RIBBON3, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton4OnRibbonButtonClicked ) );
+	this->Disconnect( ID_RIBBON4, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton5OnRibbonButtonClicked ) );
+	this->Disconnect( ID_RIBBON5, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton6OnRibbonButtonClicked ) );
+	this->Disconnect( ID_RIBBON6, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton7OnRibbonButtonClicked ) );
+	this->Disconnect( ID_RIBBON7, wxEVT_COMMAND_RIBBONBUTTON_CLICKED, wxRibbonButtonBarEventHandler( MainFrame::m_ribbonButton8OnRibbonButtonClicked ) );
 
 }
 
@@ -117,32 +117,26 @@ SearchDialog::SearchDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_listCtrl = new wxListCtrl( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_HRULES|wxLC_REPORT|wxLC_SINGLE_SEL );
 	bSizer1->Add( m_listCtrl, 1, wxALL|wxEXPAND, 5 );
 
-	wxBoxSizer* bSizer3;
-	bSizer3 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_button1 = new wxButton( this, wxID_OK, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer3->Add( m_button1, 0, wxALL, 5 );
-
-	m_button2 = new wxButton( this, wxID_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer3->Add( m_button2, 0, wxALL, 5 );
-
-
-	bSizer1->Add( bSizer3, 0, wxALIGN_RIGHT, 5 );
+	m_button = new wxButton( this, wxID_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer1->Add( m_button, 0, wxALL|wxALIGN_RIGHT, 5 );
 
 
 	this->SetSizer( bSizer1 );
 	this->Layout();
-	bSizer1->Fit( this );
 
 	this->Centre( wxBOTH );
 
 	// Connect Events
+	m_textCtrl->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( SearchDialog::m_textCtrlOnText ), NULL, this );
+	m_listCtrl->Connect( wxEVT_COMMAND_LIST_ITEM_ACTIVATED, wxListEventHandler( SearchDialog::m_listCtrlOnListItemActivated ), NULL, this );
 	m_listCtrl->Connect( wxEVT_COMMAND_LIST_ITEM_SELECTED, wxListEventHandler( SearchDialog::m_listCtrlOnListItemSelected ), NULL, this );
 }
 
 SearchDialog::~SearchDialog()
 {
 	// Disconnect Events
+	m_textCtrl->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( SearchDialog::m_textCtrlOnText ), NULL, this );
+	m_listCtrl->Disconnect( wxEVT_COMMAND_LIST_ITEM_ACTIVATED, wxListEventHandler( SearchDialog::m_listCtrlOnListItemActivated ), NULL, this );
 	m_listCtrl->Disconnect( wxEVT_COMMAND_LIST_ITEM_SELECTED, wxListEventHandler( SearchDialog::m_listCtrlOnListItemSelected ), NULL, this );
 
 }
@@ -154,24 +148,36 @@ AddExistedDialog::AddExistedDialog( wxWindow* parent, wxWindowID id, const wxStr
 	wxGridSizer* gSizer;
 	gSizer = new wxGridSizer( 2, 1, 0, 0 );
 
-	wxBoxSizer* bSizer;
-	bSizer = new wxBoxSizer( wxHORIZONTAL );
+	wxBoxSizer* bSizer1;
+	bSizer1 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText = new wxStaticText( this, wxID_ANY, _("Adding number: "), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText->Wrap( -1 );
-	bSizer->Add( m_staticText, 0, wxALL, 5 );
+	bSizer1->Add( m_staticText, 0, wxALL, 5 );
 
 
-	bSizer->Add( 0, 0, 1, wxEXPAND, 5 );
+	bSizer1->Add( 0, 0, 1, wxEXPAND, 5 );
 
 	m_spinCtrl = new wxSpinCtrl( this, wxID_ANY, wxT("10"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 1, 1000000, 10 );
-	bSizer->Add( m_spinCtrl, 0, wxALL, 5 );
+	bSizer1->Add( m_spinCtrl, 0, wxALL, 5 );
 
 
-	gSizer->Add( bSizer, 1, wxEXPAND, 5 );
+	gSizer->Add( bSizer1, 1, wxEXPAND, 5 );
 
-	m_button = new wxButton( this, wxID_ANY, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
-	gSizer->Add( m_button, 0, wxALL|wxALIGN_RIGHT, 5 );
+	wxBoxSizer* bSizer2;
+	bSizer2 = new wxBoxSizer( wxHORIZONTAL );
+
+
+	bSizer2->Add( 0, 0, 1, wxEXPAND, 5 );
+
+	m_button1 = new wxButton( this, wxID_OK, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer2->Add( m_button1, 0, wxALL|wxALIGN_RIGHT, 5 );
+
+	m_button2 = new wxButton( this, wxID_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer2->Add( m_button2, 0, wxALL, 5 );
+
+
+	gSizer->Add( bSizer2, 1, wxEXPAND, 5 );
 
 
 	this->SetSizer( gSizer );
@@ -238,8 +244,8 @@ AddNewDialog::AddNewDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText4->Wrap( -1 );
 	bSizer4->Add( m_staticText4, 0, wxALL, 5 );
 
-	m_spinCtrlDouble = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 100, 0, 1 );
-	m_spinCtrlDouble->SetDigits( 0 );
+	m_spinCtrlDouble = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 100, 10, 1 );
+	m_spinCtrlDouble->SetDigits( 1 );
 	bSizer4->Add( m_spinCtrlDouble, 1, wxALL, 5 );
 
 
@@ -252,14 +258,28 @@ AddNewDialog::AddNewDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText5->Wrap( -1 );
 	bSizer5->Add( m_staticText5, 0, wxALL, 5 );
 
-	m_spinCtrl = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 10, 0 );
+	m_spinCtrl = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 1, 100000, 10 );
 	bSizer5->Add( m_spinCtrl, 1, wxALL, 5 );
 
 
 	gSizer->Add( bSizer5, 1, wxEXPAND, 5 );
 
-	m_button = new wxButton( this, wxID_ANY, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
-	gSizer->Add( m_button, 0, wxALL|wxALIGN_RIGHT|wxALIGN_BOTTOM, 5 );
+	wxBoxSizer* bSizer6;
+	bSizer6 = new wxBoxSizer( wxHORIZONTAL );
+
+
+	bSizer6->Add( 0, 0, 1, wxEXPAND, 5 );
+
+	m_button1 = new wxButton( this, wxID_OK, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_button1->Enable( false );
+
+	bSizer6->Add( m_button1, 0, wxALL|wxALIGN_RIGHT, 5 );
+
+	m_button2 = new wxButton( this, wxID_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer6->Add( m_button2, 0, wxALL, 5 );
+
+
+	gSizer->Add( bSizer6, 1, wxEXPAND|wxALIGN_RIGHT, 5 );
 
 
 	this->SetSizer( gSizer );
@@ -267,10 +287,22 @@ AddNewDialog::AddNewDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	gSizer->Fit( this );
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_textCtrl1->Connect( wxEVT_CHAR, wxKeyEventHandler( AddNewDialog::m_textCtrl1OnChar ), NULL, this );
+	m_textCtrl1->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( AddNewDialog::m_textCtrl1OnText ), NULL, this );
+	m_textCtrl2->Connect( wxEVT_CHAR, wxKeyEventHandler( AddNewDialog::m_textCtrl2OnChar ), NULL, this );
+	m_textCtrl2->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( AddNewDialog::m_textCtrl2OnText ), NULL, this );
 }
 
 AddNewDialog::~AddNewDialog()
 {
+	// Disconnect Events
+	m_textCtrl1->Disconnect( wxEVT_CHAR, wxKeyEventHandler( AddNewDialog::m_textCtrl1OnChar ), NULL, this );
+	m_textCtrl1->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( AddNewDialog::m_textCtrl1OnText ), NULL, this );
+	m_textCtrl2->Disconnect( wxEVT_CHAR, wxKeyEventHandler( AddNewDialog::m_textCtrl2OnChar ), NULL, this );
+	m_textCtrl2->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( AddNewDialog::m_textCtrl2OnText ), NULL, this );
+
 }
 
 StockOutDialog::StockOutDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
@@ -280,24 +312,36 @@ StockOutDialog::StockOutDialog( wxWindow* parent, wxWindowID id, const wxString&
 	wxGridSizer* gSizer;
 	gSizer = new wxGridSizer( 2, 1, 0, 0 );
 
-	wxBoxSizer* bSizer;
-	bSizer = new wxBoxSizer( wxHORIZONTAL );
+	wxBoxSizer* bSizer1;
+	bSizer1 = new wxBoxSizer( wxHORIZONTAL );
 
 	m_staticText = new wxStaticText( this, wxID_ANY, _("Stock out number: "), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText->Wrap( -1 );
-	bSizer->Add( m_staticText, 0, wxALL, 5 );
+	bSizer1->Add( m_staticText, 0, wxALL, 5 );
 
 
-	bSizer->Add( 0, 0, 1, wxEXPAND, 5 );
+	bSizer1->Add( 0, 0, 1, wxEXPAND, 5 );
 
 	m_spinCtrl = new wxSpinCtrl( this, wxID_ANY, wxT("10"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 1, 1000000, 10 );
-	bSizer->Add( m_spinCtrl, 0, wxALL, 5 );
+	bSizer1->Add( m_spinCtrl, 0, wxALL, 5 );
 
 
-	gSizer->Add( bSizer, 1, wxEXPAND, 5 );
+	gSizer->Add( bSizer1, 1, wxEXPAND, 5 );
 
-	m_button = new wxButton( this, wxID_ANY, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
-	gSizer->Add( m_button, 0, wxALL|wxALIGN_RIGHT, 5 );
+	wxBoxSizer* bSizer2;
+	bSizer2 = new wxBoxSizer( wxHORIZONTAL );
+
+
+	bSizer2->Add( 0, 0, 1, wxEXPAND, 5 );
+
+	m_button1 = new wxButton( this, wxID_OK, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer2->Add( m_button1, 0, wxALL|wxALIGN_RIGHT, 5 );
+
+	m_button2 = new wxButton( this, wxID_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer2->Add( m_button2, 0, wxALL, 5 );
+
+
+	gSizer->Add( bSizer2, 1, wxEXPAND, 5 );
 
 
 	this->SetSizer( gSizer );
@@ -357,8 +401,8 @@ DetailDialog::DetailDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText3->Wrap( -1 );
 	bSizer4->Add( m_staticText3, 0, wxALL, 5 );
 
-	m_datePicker = new wxDatePickerCtrl( sbSizer1->GetStaticBox(), wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT );
-	bSizer4->Add( m_datePicker, 1, wxALL, 5 );
+	m_datePicker1 = new wxDatePickerCtrl( sbSizer1->GetStaticBox(), wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT );
+	bSizer4->Add( m_datePicker1, 1, wxALL, 5 );
 
 
 	gSizer1->Add( bSizer4, 1, wxEXPAND, 5 );
@@ -409,15 +453,15 @@ DetailDialog::DetailDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText6->Wrap( -1 );
 	bSizer7->Add( m_staticText6, 0, wxALL, 5 );
 
-	m_datePicker6 = new wxDatePickerCtrl( sbSizer2->GetStaticBox(), wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT );
-	bSizer7->Add( m_datePicker6, 1, wxALL, 5 );
+	m_datePicker2 = new wxDatePickerCtrl( sbSizer2->GetStaticBox(), wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT );
+	bSizer7->Add( m_datePicker2, 1, wxALL, 5 );
 
 	m_staticText7 = new wxStaticText( sbSizer2->GetStaticBox(), wxID_ANY, _("to"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText7->Wrap( -1 );
 	bSizer7->Add( m_staticText7, 0, wxALL, 5 );
 
-	m_datePicker7 = new wxDatePickerCtrl( sbSizer2->GetStaticBox(), wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT );
-	bSizer7->Add( m_datePicker7, 1, wxALL, 5 );
+	m_datePicker3 = new wxDatePickerCtrl( sbSizer2->GetStaticBox(), wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT );
+	bSizer7->Add( m_datePicker3, 1, wxALL, 5 );
 
 
 	gSizer2->Add( bSizer7, 1, wxEXPAND, 5 );
@@ -454,7 +498,7 @@ DetailDialog::DetailDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	bSizer1->Add( sbSizer2, 1, wxEXPAND, 5 );
 
-	m_button = new wxButton( this, wxID_ANY, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_button = new wxButton( this, wxID_OK, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer1->Add( m_button, 0, wxALL|wxALIGN_RIGHT|wxALIGN_BOTTOM, 5 );
 
 
@@ -463,10 +507,18 @@ DetailDialog::DetailDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	bSizer1->Fit( this );
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_datePicker2->Connect( wxEVT_DATE_CHANGED, wxDateEventHandler( DetailDialog::m_datePicker2OnDateChanged ), NULL, this );
+	m_datePicker3->Connect( wxEVT_DATE_CHANGED, wxDateEventHandler( DetailDialog::m_datePicker3OnDateChanged ), NULL, this );
 }
 
 DetailDialog::~DetailDialog()
 {
+	// Disconnect Events
+	m_datePicker2->Disconnect( wxEVT_DATE_CHANGED, wxDateEventHandler( DetailDialog::m_datePicker2OnDateChanged ), NULL, this );
+	m_datePicker3->Disconnect( wxEVT_DATE_CHANGED, wxDateEventHandler( DetailDialog::m_datePicker3OnDateChanged ), NULL, this );
+
 }
 
 ModifyDialog::ModifyDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
@@ -523,7 +575,7 @@ ModifyDialog::ModifyDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	bSizer4->Add( m_staticText4, 0, wxALL, 5 );
 
 	m_spinCtrlDouble = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 100, 0, 1 );
-	m_spinCtrlDouble->SetDigits( 0 );
+	m_spinCtrlDouble->SetDigits( 1 );
 	bSizer4->Add( m_spinCtrlDouble, 1, wxALL, 5 );
 
 
@@ -532,8 +584,20 @@ ModifyDialog::ModifyDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 
 	gSizer->Add( 0, 0, 1, wxEXPAND, 5 );
 
-	m_button = new wxButton( this, wxID_ANY, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
-	gSizer->Add( m_button, 0, wxALL|wxALIGN_RIGHT|wxALIGN_BOTTOM, 5 );
+	wxBoxSizer* bSizer5;
+	bSizer5 = new wxBoxSizer( wxHORIZONTAL );
+
+
+	bSizer5->Add( 0, 0, 1, wxEXPAND, 5 );
+
+	m_button1 = new wxButton( this, wxID_OK, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer5->Add( m_button1, 0, wxALL|wxALIGN_RIGHT, 5 );
+
+	m_button2 = new wxButton( this, wxID_CANCEL, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer5->Add( m_button2, 0, wxALL, 5 );
+
+
+	gSizer->Add( bSizer5, 1, wxEXPAND, 5 );
 
 
 	this->SetSizer( gSizer );
@@ -570,10 +634,10 @@ DeleteDialog::DeleteDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	wxBoxSizer* bSizer3;
 	bSizer3 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_button1 = new wxButton( this, wxID_ANY, _("Yes"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_button1 = new wxButton( this, wxID_OK, _("Yes"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer3->Add( m_button1, 0, wxALL, 5 );
 
-	m_button2 = new wxButton( this, wxID_ANY, _("No"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_button2 = new wxButton( this, wxID_CANCEL, _("No"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer3->Add( m_button2, 0, wxALL, 5 );
 
 
@@ -641,27 +705,5 @@ AboutDialog::AboutDialog( wxWindow* parent, wxWindowID id, const wxString& title
 }
 
 AboutDialog::~AboutDialog()
-{
-}
-
-HelpDialog::HelpDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
-{
-	this->SetSizeHints( wxSize( 600,600 ), wxDefaultSize );
-
-	wxBoxSizer* bSizer;
-	bSizer = new wxBoxSizer( wxVERTICAL );
-
-	m_richText = new wxRichTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0|wxVSCROLL|wxHSCROLL|wxNO_BORDER|wxWANTS_CHARS );
-	bSizer->Add( m_richText, 1, wxEXPAND | wxALL, 5 );
-
-
-	this->SetSizer( bSizer );
-	this->Layout();
-	bSizer->Fit( this );
-
-	this->Centre( wxBOTH );
-}
-
-HelpDialog::~HelpDialog()
 {
 }

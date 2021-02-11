@@ -37,7 +37,6 @@
 #include <wx/dateevt.h>
 #include <wx/statbox.h>
 #include <wx/statbmp.h>
-#include <wx/richtext/richtextctrl.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -54,13 +53,13 @@ namespace GUI
 			enum
 			{
 				ID_RIBBON1 = 1000,
+				ID_RIBBON9,
 				ID_RIBBON2,
 				ID_RIBBON3,
 				ID_RIBBON4,
 				ID_RIBBON5,
 				ID_RIBBON6,
-				ID_RIBBON7,
-				ID_RIBBON8
+				ID_RIBBON7
 			};
 
 			wxRibbonBar* m_ribbonBar;
@@ -101,16 +100,17 @@ namespace GUI
 			wxStaticText* m_staticText;
 			wxTextCtrl* m_textCtrl;
 			wxListCtrl* m_listCtrl;
-			wxButton* m_button1;
-			wxButton* m_button2;
+			wxButton* m_button;
 
 			// Virtual event handlers, overide them in your derived class
+			virtual void m_textCtrlOnText( wxCommandEvent& event ) { event.Skip(); }
+			virtual void m_listCtrlOnListItemActivated( wxListEvent& event ) { event.Skip(); }
 			virtual void m_listCtrlOnListItemSelected( wxListEvent& event ) { event.Skip(); }
 
 
 		public:
 
-			SearchDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Search"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
+			SearchDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Search"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 900,500 ), long style = wxDEFAULT_DIALOG_STYLE );
 			~SearchDialog();
 
 	};
@@ -125,11 +125,12 @@ namespace GUI
 		protected:
 			wxStaticText* m_staticText;
 			wxSpinCtrl* m_spinCtrl;
-			wxButton* m_button;
+			wxButton* m_button1;
+			wxButton* m_button2;
 
 		public:
 
-			AddExistedDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Stock in"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
+			AddExistedDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Stock in"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = 0 );
 			~AddExistedDialog();
 
 	};
@@ -152,11 +153,19 @@ namespace GUI
 			wxSpinCtrlDouble* m_spinCtrlDouble;
 			wxStaticText* m_staticText5;
 			wxSpinCtrl* m_spinCtrl;
-			wxButton* m_button;
+			wxButton* m_button1;
+			wxButton* m_button2;
+
+			// Virtual event handlers, overide them in your derived class
+			virtual void m_textCtrl1OnChar( wxKeyEvent& event ) { event.Skip(); }
+			virtual void m_textCtrl1OnText( wxCommandEvent& event ) { event.Skip(); }
+			virtual void m_textCtrl2OnChar( wxKeyEvent& event ) { event.Skip(); }
+			virtual void m_textCtrl2OnText( wxCommandEvent& event ) { event.Skip(); }
+
 
 		public:
 
-			AddNewDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Stock in"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+			AddNewDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Stock in"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = 0 );
 			~AddNewDialog();
 
 	};
@@ -171,11 +180,12 @@ namespace GUI
 		protected:
 			wxStaticText* m_staticText;
 			wxSpinCtrl* m_spinCtrl;
-			wxButton* m_button;
+			wxButton* m_button1;
+			wxButton* m_button2;
 
 		public:
 
-			StockOutDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Stock out"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+			StockOutDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Stock out"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = 0 );
 			~StockOutDialog();
 
 	};
@@ -193,20 +203,25 @@ namespace GUI
 			wxStaticText* m_staticText2;
 			wxTextCtrl* m_textCtrl2;
 			wxStaticText* m_staticText3;
-			wxDatePickerCtrl* m_datePicker;
+			wxDatePickerCtrl* m_datePicker1;
 			wxStaticText* m_staticText4;
 			wxSpinCtrlDouble* m_spinCtrlDouble;
 			wxStaticText* m_staticText5;
 			wxSpinCtrl* m_spinCtrl;
 			wxStaticText* m_staticText6;
-			wxDatePickerCtrl* m_datePicker6;
+			wxDatePickerCtrl* m_datePicker2;
 			wxStaticText* m_staticText7;
-			wxDatePickerCtrl* m_datePicker7;
+			wxDatePickerCtrl* m_datePicker3;
 			wxStaticText* m_staticText8;
 			wxTextCtrl* m_textCtrl3;
 			wxStaticText* m_staticText9;
 			wxTextCtrl* m_textCtrl4;
 			wxButton* m_button;
+
+			// Virtual event handlers, overide them in your derived class
+			virtual void m_datePicker2OnDateChanged( wxDateEvent& event ) { event.Skip(); }
+			virtual void m_datePicker3OnDateChanged( wxDateEvent& event ) { event.Skip(); }
+
 
 		public:
 
@@ -231,11 +246,12 @@ namespace GUI
 			wxDatePickerCtrl* m_datePicker;
 			wxStaticText* m_staticText4;
 			wxSpinCtrlDouble* m_spinCtrlDouble;
-			wxButton* m_button;
+			wxButton* m_button1;
+			wxButton* m_button2;
 
 		public:
 
-			ModifyDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Modify"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+			ModifyDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Modify"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = 0 );
 			~ModifyDialog();
 
 	};
@@ -293,23 +309,6 @@ namespace GUI
 
 			AboutDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("About"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
 			~AboutDialog();
-
-	};
-
-	///////////////////////////////////////////////////////////////////////////////
-	/// Class HelpDialog
-	///////////////////////////////////////////////////////////////////////////////
-	class HelpDialog : public wxDialog
-	{
-		private:
-
-		protected:
-
-		public:
-			wxRichTextCtrl* m_richText;
-
-			HelpDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Help"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
-			~HelpDialog();
 
 	};
 

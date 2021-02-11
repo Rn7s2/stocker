@@ -6,10 +6,10 @@
 #include <wx/string.h>
 
 struct Record {
-    Record(const unsigned long &isIn, const wxDateTime &time);
+    Record(const long &cnt, const wxDateTime &time);
 
+    long cnt; // in > 0, out < 0
     wxDateTime time;
-    unsigned long isIn;
 };
 
 struct Item
@@ -46,6 +46,7 @@ public:
     void ModifyItem(const Item &o, const Item &t);
     void InsertItem(const Item &t);
     void DeleteItem(const Item &t);
+    Item SearchItemByCode(const wxString &str);
     std::list<Item> SearchItem(const wxString &str);
 
 public:
