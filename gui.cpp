@@ -231,7 +231,7 @@ AddNewDialog::AddNewDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText3->Wrap( -1 );
 	bSizer3->Add( m_staticText3, 0, wxALL, 5 );
 
-	m_datePicker = new wxDatePickerCtrl( this, wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT );
+	m_datePicker = new wxDatePickerCtrl( this, wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DROPDOWN );
 	bSizer3->Add( m_datePicker, 1, wxALL, 5 );
 
 
@@ -244,7 +244,7 @@ AddNewDialog::AddNewDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText4->Wrap( -1 );
 	bSizer4->Add( m_staticText4, 0, wxALL, 5 );
 
-	m_spinCtrlDouble = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 100, 10, 1 );
+	m_spinCtrlDouble = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 100000, 10, 1 );
 	m_spinCtrlDouble->SetDigits( 1 );
 	bSizer4->Add( m_spinCtrlDouble, 1, wxALL, 5 );
 
@@ -401,7 +401,7 @@ DetailDialog::DetailDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText3->Wrap( -1 );
 	bSizer4->Add( m_staticText3, 0, wxALL, 5 );
 
-	m_datePicker1 = new wxDatePickerCtrl( sbSizer1->GetStaticBox(), wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT );
+	m_datePicker1 = new wxDatePickerCtrl( sbSizer1->GetStaticBox(), wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DROPDOWN );
 	bSizer4->Add( m_datePicker1, 1, wxALL, 5 );
 
 
@@ -414,7 +414,7 @@ DetailDialog::DetailDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText4->Wrap( -1 );
 	bSizer5->Add( m_staticText4, 0, wxALL, 5 );
 
-	m_spinCtrlDouble = new wxSpinCtrlDouble( sbSizer1->GetStaticBox(), wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 100, 0, 1 );
+	m_spinCtrlDouble = new wxSpinCtrlDouble( sbSizer1->GetStaticBox(), wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, 0, 10000, 0, 1 );
 	m_spinCtrlDouble->SetDigits( 0 );
 	bSizer5->Add( m_spinCtrlDouble, 1, wxALL, 5 );
 
@@ -428,7 +428,7 @@ DetailDialog::DetailDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText5->Wrap( -1 );
 	bSizer6->Add( m_staticText5, 0, wxALL, 5 );
 
-	m_spinCtrl = new wxSpinCtrl( sbSizer1->GetStaticBox(), wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 10, 0 );
+	m_spinCtrl = new wxSpinCtrl( sbSizer1->GetStaticBox(), wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, 0, 10, 0 );
 	bSizer6->Add( m_spinCtrl, 1, wxALL, 5 );
 
 
@@ -453,14 +453,14 @@ DetailDialog::DetailDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText6->Wrap( -1 );
 	bSizer7->Add( m_staticText6, 0, wxALL, 5 );
 
-	m_datePicker2 = new wxDatePickerCtrl( sbSizer2->GetStaticBox(), wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT );
+	m_datePicker2 = new wxDatePickerCtrl( sbSizer2->GetStaticBox(), wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DROPDOWN );
 	bSizer7->Add( m_datePicker2, 1, wxALL, 5 );
 
 	m_staticText7 = new wxStaticText( sbSizer2->GetStaticBox(), wxID_ANY, _("to"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText7->Wrap( -1 );
 	bSizer7->Add( m_staticText7, 0, wxALL, 5 );
 
-	m_datePicker3 = new wxDatePickerCtrl( sbSizer2->GetStaticBox(), wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT );
+	m_datePicker3 = new wxDatePickerCtrl( sbSizer2->GetStaticBox(), wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DROPDOWN );
 	bSizer7->Add( m_datePicker3, 1, wxALL, 5 );
 
 
@@ -561,7 +561,7 @@ ModifyDialog::ModifyDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText3->Wrap( -1 );
 	bSizer3->Add( m_staticText3, 0, wxALL, 5 );
 
-	m_datePicker = new wxDatePickerCtrl( this, wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT );
+	m_datePicker = new wxDatePickerCtrl( this, wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DROPDOWN );
 	bSizer3->Add( m_datePicker, 1, wxALL, 5 );
 
 
@@ -574,7 +574,7 @@ ModifyDialog::ModifyDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText4->Wrap( -1 );
 	bSizer4->Add( m_staticText4, 0, wxALL, 5 );
 
-	m_spinCtrlDouble = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 100, 0, 1 );
+	m_spinCtrlDouble = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 10000, 0, 1 );
 	m_spinCtrlDouble->SetDigits( 1 );
 	bSizer4->Add( m_spinCtrlDouble, 1, wxALL, 5 );
 

@@ -32,10 +32,10 @@ void DetailDialog::m_datePicker2OnDateChanged(wxDateEvent &event)
     long in = 0, out = 0;
 
     for (auto it = item.record.begin(); it != item.record.end(); it++) {
-        if(it->time < s || it->time > t)
+        if (it->time < s || it->time > t)
             continue;
 
-        if(it->cnt > 0)
+        if (it->cnt > 0)
             in += it->cnt;
         else
             out -= it->cnt;
@@ -63,10 +63,10 @@ void DetailDialog::m_datePicker3OnDateChanged(wxDateEvent &event)
     long in = 0, out = 0;
 
     for (auto it = item.record.begin(); it != item.record.end(); it++) {
-        if(it->time < s || it->time > t)
+        if (it->time < s || it->time > t)
             continue;
 
-        if(it->cnt > 0)
+        if (it->cnt > 0)
             in += it->cnt;
         else
             out -= it->cnt;

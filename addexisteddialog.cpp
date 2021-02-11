@@ -1,7 +1,7 @@
 #include "addexisteddialog.h"
 
-AddExistedDialog::AddExistedDialog(wxFrame* frame)
-    : GUI::AddExistedDialog(frame)
+AddExistedDialog::AddExistedDialog(wxFrame *frame)
+        : GUI::AddExistedDialog(frame)
 {}
 
 

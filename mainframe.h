@@ -11,6 +11,7 @@ public:
 
 protected:
     void loadGrid();
+    void updateRow(const Item& o, const Item& t);
 
 	void m_ribbonButton1OnRibbonButtonClicked(wxRibbonButtonBarEvent &event) override;
 	void m_ribbonButton2OnRibbonButtonClicked(wxRibbonButtonBarEvent &event) override;

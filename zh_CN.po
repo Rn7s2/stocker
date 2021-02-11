@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2021-02-10 10:43+0800\n"
-"PO-Revision-Date: 2021-02-10 10:44+0800\n"
+"POT-Creation-Date: 2021-02-11 16:22+0800\n"
+"PO-Revision-Date: 2021-02-11 16:27+0800\n"
 "Last-Translator: \n"
-"Language-Team: \n"
+"Language-Team: 雷瑞祺\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,12 +13,24 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-KeywordsList: _\n"
-"X-Poedit-SearchPath-0: gui.cpp\n"
-"X-Poedit-SearchPath-1: gui.h\n"
-"X-Poedit-SearchPath-2: mainapp.cpp\n"
-"X-Poedit-SearchPath-3: mainapp.h\n"
-"X-Poedit-SearchPath-4: mainframe.cpp\n"
-"X-Poedit-SearchPath-5: mainframe.h\n"
+"X-Poedit-SearchPath-0: addexisteddialog.cpp\n"
+"X-Poedit-SearchPath-1: addexisteddialog.h\n"
+"X-Poedit-SearchPath-2: addnewdialog.cpp\n"
+"X-Poedit-SearchPath-3: addnewdialog.h\n"
+"X-Poedit-SearchPath-4: detaildialog.cpp\n"
+"X-Poedit-SearchPath-5: detaildialog.h\n"
+"X-Poedit-SearchPath-6: gui.cpp\n"
+"X-Poedit-SearchPath-7: gui.h\n"
+"X-Poedit-SearchPath-8: mainapp.cpp\n"
+"X-Poedit-SearchPath-9: mainapp.h\n"
+"X-Poedit-SearchPath-10: mainframe.cpp\n"
+"X-Poedit-SearchPath-11: mainframe.h\n"
+"X-Poedit-SearchPath-12: modifydialog.cpp\n"
+"X-Poedit-SearchPath-13: modifydialog.h\n"
+"X-Poedit-SearchPath-14: searchdialog.cpp\n"
+"X-Poedit-SearchPath-15: searchdialog.h\n"
+"X-Poedit-SearchPath-16: stockoutdialog.cpp\n"
+"X-Poedit-SearchPath-17: stockoutdialog.h\n"
 
 #: gui.cpp:22
 msgid "MyRibbonPage"
@@ -40,164 +52,183 @@ msgstr "增加新项"
 msgid "Stock Out"
 msgstr "出库"
 
-#: gui.cpp:28 gui.h:221
+#: gui.cpp:28 gui.h:228
 msgid "Detail"
 msgstr "详情"
 
-#: gui.cpp:29 gui.h:246
+#: gui.cpp:29 gui.h:254
 msgid "Modify"
 msgstr "修改"
 
-#: gui.cpp:30 gui.h:266
+#: gui.cpp:30 gui.h:274
 msgid "Delete"
 msgstr "删除"
 
-#: gui.cpp:31 gui.h:283
+#: gui.cpp:31 gui.h:291
 msgid "Statistic"
 msgstr "统计"
 
-#: gui.cpp:32 gui.cpp:35 gui.h:319
+#: gui.cpp:32
 msgid "Help"
 msgstr "帮助"
 
-#: gui.cpp:34 gui.h:302
+#: gui.cpp:34 gui.h:310
 msgid "About"
 msgstr "关于"
 
-#: gui.cpp:110
+#: gui.cpp:107
 msgid "Input name/code: "
 msgstr "输入名称/条码： "
 
-#: gui.cpp:126 gui.cpp:181 gui.cpp:269 gui.cpp:317 gui.cpp:475 gui.cpp:553
-#: gui.cpp:650
-msgid "OK"
-msgstr "确定"
-
-#: gui.cpp:131
+#: gui.cpp:120 gui.cpp:176 gui.cpp:278 gui.cpp:340 gui.cpp:596
 msgid "Cancel"
 msgstr "取消"
 
-#: gui.cpp:168
+#: gui.cpp:154
 msgid "Adding number: "
 msgstr "添加数量： "
 
-#: gui.cpp:206 gui.cpp:348 gui.cpp:500
+#: gui.cpp:173 gui.cpp:273 gui.cpp:337 gui.cpp:501 gui.cpp:593 gui.cpp:696
+msgid "OK"
+msgstr "确定"
+
+#: gui.cpp:204 gui.cpp:374 gui.cpp:534
 msgid "Name: "
 msgstr "名称： "
 
-#: gui.cpp:219 gui.cpp:361 gui.cpp:513
+#: gui.cpp:217 gui.cpp:387 gui.cpp:547
 msgid "Code: "
 msgstr "条码： "
 
-#: gui.cpp:232 gui.cpp:374 gui.cpp:526
+#: gui.cpp:230 gui.cpp:400 gui.cpp:560
 msgid "Expiration: "
 msgstr "有效期： "
 
-#: gui.cpp:245 gui.cpp:387 gui.cpp:539
+#: gui.cpp:243 gui.cpp:413 gui.cpp:573
 msgid "Price: "
 msgstr "价格： "
 
-#: gui.cpp:259 gui.cpp:401
+#: gui.cpp:257 gui.cpp:427
 msgid "Number: "
 msgstr "数量： "
 
-#: gui.cpp:304
+#: gui.cpp:318
 msgid "Stock out number: "
 msgstr "出库数量： "
 
-#: gui.cpp:340
+#: gui.cpp:366
 msgid "Basic information"
 msgstr "基本信息"
 
-#: gui.cpp:418
+#: gui.cpp:444
 msgid "Stock in/out record"
 msgstr "出入库记录"
 
-#: gui.cpp:426
+#: gui.cpp:452
 msgid "From"
 msgstr "从"
 
-#: gui.cpp:433
+#: gui.cpp:459
 msgid "to"
 msgstr "至"
 
-#: gui.cpp:446
+#: gui.cpp:472
 msgid "Total stock in: "
 msgstr "总共入库： "
 
-#: gui.cpp:459
+#: gui.cpp:485
 msgid "Total stock out: "
 msgstr "总共出库： "
 
-#: gui.cpp:581
+#: gui.cpp:627
 msgid "Are you sure?"
 msgstr "你确定吗？"
 
-#: gui.cpp:591
+#: gui.cpp:637
 msgid "Yes"
 msgstr "是"
 
-#: gui.cpp:594
+#: gui.cpp:640
 msgid "No"
 msgstr "否"
 
-#: gui.cpp:619
+#: gui.cpp:665
 msgid ""
 "I dont't know what function you want, or what statistic you need.\n"
 "So it is not implemented."
 msgstr "我不知道你想要什么功能、需要什么统计信息，所以它没有被实现。"
 
-#: gui.cpp:642 gui.h:88
+#: gui.cpp:688 gui.h:86
 msgid "Stocker - Sales Management System"
 msgstr "Stocker - 销售管理系统"
 
-#: gui.cpp:646
+#: gui.cpp:692
 msgid "Copyright (C) 2020 rn7s2"
 msgstr "版权所有 (C) 2020 rn7s2"
 
-#: gui.h:116
+#: gui.h:113
 msgid "Search"
 msgstr "搜索"
 
-#: gui.h:135 gui.h:167
+#: gui.h:133 gui.h:168
 msgid "Stock in"
 msgstr "入库"
 
-#: gui.h:186
+#: gui.h:188
 msgid "Stock out"
 msgstr "出库"
 
-#: mainframe.cpp:11
+#: mainframe.cpp:24 searchdialog.cpp:7
 msgid "Name"
 msgstr "名称"
 
-#: mainframe.cpp:12
+#: mainframe.cpp:25 searchdialog.cpp:6
 msgid "Code"
 msgstr "条码"
 
-#: mainframe.cpp:13
+#: mainframe.cpp:26 searchdialog.cpp:8
 msgid "Number"
 msgstr "数量"
 
-#: mainframe.cpp:14
+#: mainframe.cpp:27 searchdialog.cpp:9
 msgid "Price"
 msgstr "价格"
 
-#: mainframe.cpp:15
+#: mainframe.cpp:28 searchdialog.cpp:10
 msgid "Expiration"
 msgstr "有效期"
 
-#: mainframe.cpp:72 mainframe.cpp:85 mainframe.cpp:98 mainframe.cpp:111
-msgid "Search failed, please retry."
-msgstr "搜索失败，请重试。"
+#: mainframe.cpp:61 mainframe.cpp:113 mainframe.cpp:146 mainframe.cpp:161
+#: mainframe.cpp:196
+msgid "Please select one item."
+msgstr "请选择一个项目。"
 
-#: mainframe.cpp:72 mainframe.cpp:85 mainframe.cpp:98 mainframe.cpp:111
+#: mainframe.cpp:61 mainframe.cpp:113 mainframe.cpp:146 mainframe.cpp:161
+#: mainframe.cpp:196
 msgid "Search failed"
 msgstr "搜索失败"
 
-#: mainframe.cpp:134
-msgid "Currently, there's no help."
-msgstr "这里暂时没有帮助。"
+#: mainframe.cpp:98 mainframe.cpp:175
+msgid "Item exists, please use Add Existed function."
+msgstr "项目已经存在，请使用“添加已存在”功能。"
+
+#: mainframe.cpp:98 mainframe.cpp:175
+msgid "Item exists"
+msgstr "项目已存在"
+
+#: mainframe.cpp:122
+msgid "No enough items."
+msgstr "库中数量不足。"
+
+#: mainframe.cpp:122
+msgid "Stock out failed"
+msgstr "出库失败"
+
+#~ msgid "Search failed, please retry."
+#~ msgstr "搜索失败，请重试。"
+
+#~ msgid "Currently, there's no help."
+#~ msgstr "这里暂时没有帮助。"
 
 #~ msgid "Record"
 #~ msgstr "记录"

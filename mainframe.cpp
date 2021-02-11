@@ -51,6 +51,29 @@ void MainFrame::loadGrid()
     }
 }
 
+void MainFrame::updateRow(const Item &o, const Item &t)
+{
+    for (size_t i = 0; i < m_grid->GetRows(); i++) {
+        if (m_grid->GetCellValue(i, 0) != o.name || m_grid->GetCellValue(i, 1) != o.id)
+            continue;
+        m_grid->SetCellBackgroundColour(i, 2, *wxWHITE);
+        m_grid->SetCellBackgroundColour(i, 4, *wxWHITE);
+        m_grid->SetCellValue(i, 0, t.name);
+        m_grid->SetCellValue(i, 1, t.id);
+        m_grid->SetCellValue(i, 2, wxString::Format(wxT("%lu"), t.num));
+        m_grid->SetCellValue(i, 3, wxString::Format(wxT("%.1lf"), t.price));
+        m_grid->SetCellValue(i, 4, t.expiration.FormatISODate());
+        if (t.num <= 2)
+            m_grid->SetCellBackgroundColour(i, 2, *wxBLUE);
+
+        int rem = (t.expiration - wxDateTime::Today()).GetDays();
+        if (rem <= 60)
+            m_grid->SetCellBackgroundColour(i, 4, *wxGREEN);
+        break;
+    }
+}
+
+// add existed
 void MainFrame::m_ribbonButton1OnRibbonButtonClicked(wxRibbonButtonBarEvent &event)
 {
     SearchDialog searchDialog(this);
@@ -64,9 +87,7 @@ void MainFrame::m_ribbonButton1OnRibbonButtonClicked(wxRibbonButtonBarEvent &eve
 
     AddExistedDialog dialog(this);
 
-    auto debug = dialog.ShowModal();
-
-    if (debug != wxID_OK)
+    if (dialog.ShowModal() != wxID_OK)
         return;
 
     Item tmp = item;
@@ -79,9 +100,10 @@ void MainFrame::m_ribbonButton1OnRibbonButtonClicked(wxRibbonButtonBarEvent &eve
     else
         tmp.record.emplace_back(dialog.num, wxDateTime::Today());
     db.ModifyItem(item, tmp);
-    loadGrid();
+    updateRow(item, tmp);
 }
 
+// add new
 void MainFrame::m_ribbonButton2OnRibbonButtonClicked(wxRibbonButtonBarEvent &event)
 {
     AddNewDialog dialog(this);
@@ -100,9 +122,21 @@ void MainFrame::m_ribbonButton2OnRibbonButtonClicked(wxRibbonButtonBarEvent &eve
     }
     db.InsertItem(item);
 
-    loadGrid();
+    m_grid->InsertRows();
+    m_grid->SetCellValue(0, 0, item.name);
+    m_grid->SetCellValue(0, 1, item.id);
+    m_grid->SetCellValue(0, 2, wxString::Format(wxT("%lu"), item.num));
+    m_grid->SetCellValue(0, 3, wxString::Format(wxT("%.1lf"), item.price));
+    m_grid->SetCellValue(0, 4, item.expiration.FormatISODate());
+    if (item.num <= 2)
+        m_grid->SetCellBackgroundColour(0, 2, *wxBLUE);
+
+    int rem = (item.expiration - wxDateTime::Today()).GetDays();
+    if (rem <= 60)
+        m_grid->SetCellBackgroundColour(0, 4, *wxGREEN);
 }
 
+// stock out
 void MainFrame::m_ribbonButton3OnRibbonButtonClicked(wxRibbonButtonBarEvent &event)
 {
     SearchDialog searchDialog(this);
@@ -119,7 +153,7 @@ void MainFrame::m_ribbonButton3OnRibbonButtonClicked(wxRibbonButtonBarEvent &eve
         return;
 
     if ((long) item.num + dialog.num < 0) {
-        wxMessageBox(_("Please select one item."), _("Stock out failed."));
+        wxMessageBox(_("No enough items."), _("Stock out failed"));
         return;
     }
 
@@ -133,9 +167,10 @@ void MainFrame::m_ribbonButton3OnRibbonButtonClicked(wxRibbonButtonBarEvent &eve
     else
         tmp.record.emplace_back(dialog.num, wxDateTime::Today());
     db.ModifyItem(item, tmp);
-    loadGrid();
+    updateRow(item, tmp);
 }
 
+// detail
 void MainFrame::m_ribbonButton4OnRibbonButtonClicked(wxRibbonButtonBarEvent &event)
 {
     SearchDialog searchDialog(this);
@@ -151,6 +186,7 @@ void MainFrame::m_ribbonButton4OnRibbonButtonClicked(wxRibbonButtonBarEvent &eve
     dialog.ShowModal();
 }
 
+// modify
 void MainFrame::m_ribbonButton5OnRibbonButtonClicked(wxRibbonButtonBarEvent &event)
 {
     SearchDialog searchDialog(this);
@@ -183,9 +219,10 @@ void MainFrame::m_ribbonButton5OnRibbonButtonClicked(wxRibbonButtonBarEvent &eve
     tmp.price = dialog.price;
 
     db.ModifyItem(item, tmp);
-    loadGrid();
+    updateRow(item, tmp);
 }
 
+// delete
 void MainFrame::m_ribbonButton6OnRibbonButtonClicked(wxRibbonButtonBarEvent &event)
 {
     SearchDialog searchDialog(this);
@@ -198,11 +235,17 @@ void MainFrame::m_ribbonButton6OnRibbonButtonClicked(wxRibbonButtonBarEvent &eve
     }
 
     GUI::DeleteDialog dialog(this);
-    if(dialog.ShowModal() != wxID_OK)
+    if (dialog.ShowModal() != wxID_OK)
         return;
 
     db.DeleteItem(item);
-    loadGrid();
+
+    for (size_t i = 0; i < m_grid->GetRows(); i++) {
+        if (m_grid->GetCellValue(i, 0) != item.name || m_grid->GetCellValue(i, 1) != item.id)
+            continue;
+        m_grid->DeleteRows(i);
+        break;
+    }
 }
 
 // TODO: statistic
