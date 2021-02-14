@@ -18,8 +18,8 @@ MainFrame::MainFrame() : GUI::MainFrame(nullptr, wxID_ANY)
 void MainFrame::loadGrid()
 {
     m_grid->ClearGrid();
-    if (m_grid->GetRows())
-        m_grid->DeleteRows(0, m_grid->GetRows());
+    if (m_grid->GetNumberRows())
+        m_grid->DeleteRows(0, m_grid->GetNumberRows());
 
     m_grid->SetColLabelValue(0, _("Name"));
     m_grid->SetColLabelValue(1, _("Code"));
@@ -27,11 +27,11 @@ void MainFrame::loadGrid()
     m_grid->SetColLabelValue(3, _("Price"));
     m_grid->SetColLabelValue(4, _("Expiration"));
 
-    m_grid->SetColumnWidth(0, 250);
-    m_grid->SetColumnWidth(1, 250);
-    m_grid->SetColumnWidth(2, 75);
-    m_grid->SetColumnWidth(3, 75);
-    m_grid->SetColumnWidth(4, 150);
+    m_grid->SetColSize(0, 250);
+    m_grid->SetColSize(1, 250);
+    m_grid->SetColSize(2, 75);
+    m_grid->SetColSize(3, 75);
+    m_grid->SetColSize(4, 150);
 
     size_t i = 0;
     for (auto it = db.item.begin(); it != db.item.end(); it++, i++) {
@@ -53,7 +53,7 @@ void MainFrame::loadGrid()
 
 void MainFrame::updateRow(const Item &o, const Item &t)
 {
-    for (size_t i = 0; i < m_grid->GetRows(); i++) {
+    for (size_t i = 0; i < m_grid->GetNumberRows(); i++) {
         if (m_grid->GetCellValue(i, 0) != o.name || m_grid->GetCellValue(i, 1) != o.id)
             continue;
         m_grid->SetCellBackgroundColour(i, 2, *wxWHITE);
@@ -240,7 +240,7 @@ void MainFrame::m_ribbonButton6OnRibbonButtonClicked(wxRibbonButtonBarEvent &eve
 
     db.DeleteItem(item);
 
-    for (size_t i = 0; i < m_grid->GetRows(); i++) {
+    for (size_t i = 0; i < m_grid->GetNumberRows(); i++) {
         if (m_grid->GetCellValue(i, 0) != item.name || m_grid->GetCellValue(i, 1) != item.id)
             continue;
         m_grid->DeleteRows(i);
