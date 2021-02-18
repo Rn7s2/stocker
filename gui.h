@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version Oct 26 2018)
+// C++ code generated with wxFormBuilder (version 3.9.0 Feb 18 2021)
 // http://www.wxformbuilder.org/
 //
 // PLEASE DO *NOT* EDIT THIS FILE!
@@ -70,7 +70,7 @@ namespace GUI
 			wxRibbonButtonBar* m_ribbonButtonBar2;
 			wxGrid* m_grid;
 
-			// Virtual event handlers, overide them in your derived class
+			// Virtual event handlers, override them in your derived class
 			virtual void m_ribbonButton1OnRibbonButtonClicked( wxRibbonButtonBarEvent& event ) { event.Skip(); }
 			virtual void m_ribbonButton2OnRibbonButtonClicked( wxRibbonButtonBarEvent& event ) { event.Skip(); }
 			virtual void m_ribbonButton3OnRibbonButtonClicked( wxRibbonButtonBarEvent& event ) { event.Skip(); }
@@ -102,7 +102,7 @@ namespace GUI
 			wxListCtrl* m_listCtrl;
 			wxButton* m_button;
 
-			// Virtual event handlers, overide them in your derived class
+			// Virtual event handlers, override them in your derived class
 			virtual void m_textCtrlOnText( wxCommandEvent& event ) { event.Skip(); }
 			virtual void m_listCtrlOnListItemActivated( wxListEvent& event ) { event.Skip(); }
 			virtual void m_listCtrlOnListItemSelected( wxListEvent& event ) { event.Skip(); }
@@ -156,7 +156,7 @@ namespace GUI
 			wxButton* m_button1;
 			wxButton* m_button2;
 
-			// Virtual event handlers, overide them in your derived class
+			// Virtual event handlers, override them in your derived class
 			virtual void m_textCtrl1OnChar( wxKeyEvent& event ) { event.Skip(); }
 			virtual void m_textCtrl1OnText( wxCommandEvent& event ) { event.Skip(); }
 			virtual void m_textCtrl2OnChar( wxKeyEvent& event ) { event.Skip(); }
@@ -218,7 +218,7 @@ namespace GUI
 			wxTextCtrl* m_textCtrl4;
 			wxButton* m_button;
 
-			// Virtual event handlers, overide them in your derived class
+			// Virtual event handlers, override them in your derived class
 			virtual void m_datePicker2OnDateChanged( wxDateEvent& event ) { event.Skip(); }
 			virtual void m_datePicker3OnDateChanged( wxDateEvent& event ) { event.Skip(); }
 

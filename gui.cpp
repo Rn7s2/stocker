@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version Oct 26 2018)
+// C++ code generated with wxFormBuilder (version 3.9.0 Feb 18 2021)
 // http://www.wxformbuilder.org/
 //
 // PLEASE DO *NOT* EDIT THIS FILE!
@@ -158,7 +158,7 @@ AddExistedDialog::AddExistedDialog( wxWindow* parent, wxWindowID id, const wxStr
 
 	bSizer1->Add( 0, 0, 1, wxEXPAND, 5 );
 
-	m_spinCtrl = new wxSpinCtrl( this, wxID_ANY, wxT("10"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 1, 1000000, 10 );
+	m_spinCtrl = new wxSpinCtrl( this, wxID_ANY, wxT("1"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 1, 1000000, 1 );
 	bSizer1->Add( m_spinCtrl, 0, wxALL, 5 );
 
 
@@ -258,7 +258,7 @@ AddNewDialog::AddNewDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText5->Wrap( -1 );
 	bSizer5->Add( m_staticText5, 0, wxALL, 5 );
 
-	m_spinCtrl = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 1, 100000, 10 );
+	m_spinCtrl = new wxSpinCtrl( this, wxID_ANY, wxT("1"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 1, 100000, 1 );
 	bSizer5->Add( m_spinCtrl, 1, wxALL, 5 );
 
 
@@ -322,7 +322,7 @@ StockOutDialog::StockOutDialog( wxWindow* parent, wxWindowID id, const wxString&
 
 	bSizer1->Add( 0, 0, 1, wxEXPAND, 5 );
 
-	m_spinCtrl = new wxSpinCtrl( this, wxID_ANY, wxT("10"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 1, 1000000, 10 );
+	m_spinCtrl = new wxSpinCtrl( this, wxID_ANY, wxT("1"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 1, 1000000, 1 );
 	bSizer1->Add( m_spinCtrl, 0, wxALL, 5 );
 
 
@@ -428,7 +428,7 @@ DetailDialog::DetailDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText5->Wrap( -1 );
 	bSizer6->Add( m_staticText5, 0, wxALL, 5 );
 
-	m_spinCtrl = new wxSpinCtrl( sbSizer1->GetStaticBox(), wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, 0, 10, 0 );
+	m_spinCtrl = new wxSpinCtrl( sbSizer1->GetStaticBox(), wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, 0, 1000000, 0 );
 	bSizer6->Add( m_spinCtrl, 1, wxALL, 5 );
 
 
@@ -574,7 +574,7 @@ ModifyDialog::ModifyDialog( wxWindow* parent, wxWindowID id, const wxString& tit
 	m_staticText4->Wrap( -1 );
 	bSizer4->Add( m_staticText4, 0, wxALL, 5 );
 
-	m_spinCtrlDouble = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 10000, 0, 1 );
+	m_spinCtrlDouble = new wxSpinCtrlDouble( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 100000, 0, 1 );
 	m_spinCtrlDouble->SetDigits( 1 );
 	bSizer4->Add( m_spinCtrlDouble, 1, wxALL, 5 );
 
