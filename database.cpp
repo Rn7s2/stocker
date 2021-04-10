@@ -95,6 +95,7 @@ void Database::Write()
         file.AddLine(str);
         file.Write();
     }
+    file.Write();
     file.Close();
 }
 
