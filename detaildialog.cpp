@@ -7,7 +7,7 @@
 extern Database db;
 
 DetailDialog::DetailDialog(wxFrame *frame, const Item &t)
-        : GUI::DetailDialog(frame)
+    : GUI::DetailDialog(frame)
 {
     this->item = t;
 

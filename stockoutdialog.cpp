@@ -5,7 +5,7 @@
 #include "stockoutdialog.h"
 
 StockOutDialog::StockOutDialog(wxFrame *frame)
-        : GUI::StockOutDialog(frame)
+    : GUI::StockOutDialog(frame)
 {}
 
 bool StockOutDialog::TransferDataFromWindow()

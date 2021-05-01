@@ -5,7 +5,7 @@
 #include "modifydialog.h"
 
 ModifyDialog::ModifyDialog(wxFrame *frame)
-        : GUI::ModifyDialog(frame)
+    : GUI::ModifyDialog(frame)
 {}
 
 bool ModifyDialog::TransferDataToWindow()

@@ -1,7 +1,7 @@
 #include "searchdialog.h"
 
 SearchDialog::SearchDialog(wxFrame *frame)
-        : GUI::SearchDialog(frame)
+    : GUI::SearchDialog(frame)
 {
     m_listCtrl->InsertColumn(0, _("Code"), wxLIST_FORMAT_CENTER, 245);
     m_listCtrl->InsertColumn(1, _("Name"), wxLIST_FORMAT_CENTER, 245);
